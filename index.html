@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My mini Civilization</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="logo">Logo</div>
+      <ul id="resources">
+        <li id="coins">Монеты: 0</li>
+        <li id="food">Пища: 0</li>
+        <li id="stone">Камень: 0</li>
+        <li id="tree">Дерево: 0</li>
+        <li id="metal">Метал: 0</li>
+        <li id="water">Вода: 0</li>
+      </ul>
+    </header>
+    <main id="game">
+      <div id="gamefield"></div>
+      <aside id="player">
+        <button id="end-turn">Конец хода</button>
+      </aside>
+    </main>
+    <footer id="journal">
+      <h3>Журнал:</h3>
+      <button id="save">Save</button>
+      <div id="journal__content"></div>
+    </footer>
+    <script type="module" src="main.js" />
+  </body>
+</html>
