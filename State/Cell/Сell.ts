@@ -49,7 +49,7 @@ export function changeCell(divCell: HTMLElement) {
       isOpened = true;
       divCell.dataset.opened = isOpened.toString();
       // change color
-      divCell.style.backgroundColor = cellColor;
+      divCell.style.background = `radial-gradient(${cellColor} 50%, ${ColorsENUM.default} 100%)`;
     } else {
       console.log(`Index: ${index} is opened? --- ${isOpened}`);
     }

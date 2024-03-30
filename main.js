@@ -12,6 +12,9 @@ const coinsEl = document.getElementById("coins");
 const gamefieldEl = document.getElementById("gamefield");
 const journalEl = document.getElementById("journal__content");
 const saveEl = document.getElementById("save");
+const defaultColumns = gamefieldEl === null || gamefieldEl === void 0 ? void 0 : gamefieldEl.style.getPropertyValue("grid-template-columns");
+console.log(defaultColumns);
+// gamefieldEl?.style.setProperty("--columns", COLUMNS.toString());
 for (let i = 0; i < COLUMNS; i++) {
     for (let j = 0; j < ROWS; j++) {
         const divCell = createRandomCell(currentIndex);
