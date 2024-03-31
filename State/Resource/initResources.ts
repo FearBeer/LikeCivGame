@@ -15,10 +15,12 @@ tree = new CreateResource(ResourcesENUM.tree, 0);
 metal = new CreateResource(ResourcesENUM.metal, 0);
 water = new CreateResource(ResourcesENUM.water, 0);
 
-if (localStorage.getItem("state") === null) {
+if (localStorage.getItem("resourcesState") === null) {
   curResources = { coins, food, stone, tree, metal, water };
 } else {
-  const fromLocalStore = JSON.parse(localStorage.getItem("state") || "{}");
+  const fromLocalStore = JSON.parse(
+    localStorage.getItem("resourcesState") || "{}"
+  );
   let coins, food, stone, tree, metal, water: CreateResource;
   coins = new CreateResource(
     ResourcesENUM.coins,

@@ -8,11 +8,6 @@ const ROWS = 10;
 
 let currentIndex = 0;
 
-// function randomResourceType() {
-//   const index = Math.floor(Math.random() * Object.keys(ResourcesENUM).length);
-//   return Object.keys(ResourcesENUM)[index];
-// }
-
 const coinsEl = document.getElementById("coins");
 const gamefieldEl = document.getElementById("gamefield");
 const journalEl = document.getElementById("journal__content");
@@ -44,19 +39,20 @@ function renderResourceValue(
 
 let count = 0;
 
-function ulClick(event: { [x: string]: any; target: any }) {
-  changeCell(event.target);
+function ulClick(event: MouseEvent): void {
+  const target = event.target as HTMLElement;
+  changeCell(target);
   // запись события в журнал
   renderResourceValue("Монеты: ", coinsEl, stateResources.coins);
   const p = document.createElement("p");
   count++;
-  p.innerText = event.target + count;
+  p.innerText = count.toString();
   journalEl?.prepend(p);
 }
 
 function saveState() {
-  localStorage.setItem("state", JSON.stringify(stateResources));
-  console.log(localStorage.getItem("state"));
+  localStorage.setItem("resourcesState", JSON.stringify(stateResources));
+  console.log(localStorage);
 }
 
 function resetAndReload() {
@@ -69,5 +65,3 @@ gamefieldEl?.addEventListener("click", ulClick);
 saveEl?.addEventListener("click", saveState);
 
 resetButton?.addEventListener("click", resetAndReload);
-
-// console.log(initialState.resources.coins.quantity);
