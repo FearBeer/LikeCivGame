@@ -1,5 +1,5 @@
 import { ResourcesENUM } from "../Resource/resource.js";
-var ColorsENUM;
+export var ColorsENUM;
 (function (ColorsENUM) {
     ColorsENUM["food"] = "green";
     ColorsENUM["stone"] = "grey";
@@ -12,7 +12,6 @@ function randomResourceType() {
     const resources = Object.keys(ResourcesENUM);
     const aviableResources = resources.filter((resource) => resource !== ResourcesENUM.coins);
     const index = Math.floor(Math.random() * aviableResources.length);
-    console.log(aviableResources[index]);
     return aviableResources[index];
 }
 export function createCell(currentIndex) {
@@ -30,7 +29,6 @@ export function changeCell(divCell) {
     cellColor = ColorsENUM[ResourcesENUM[resource]];
     const index = divCell.dataset.index;
     let isOpened = divCell.dataset.opened === "false" ? false : true;
-    console.log(cellColor);
     if (index) {
         if (!isOpened) {
             console.log(`Index: ${index} is opened? --- ${isOpened}`);
@@ -44,7 +42,6 @@ export function changeCell(divCell) {
                 cellColor,
             };
             localStorage.setItem(`cell-${index}`, JSON.stringify(cellState));
-            console.log(localStorage.getItem(`cell-${index}`));
         }
         else {
             console.log(`Index: ${index} is opened? --- ${isOpened}`);
