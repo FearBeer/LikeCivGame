@@ -1,4 +1,4 @@
-import { changeCell, createRandomCell } from "./State/Cell/Сell.js";
+import { changeCell, createCell } from "./State/Cell/Сell.js";
 import { Resource, ResourcesENUM } from "./State/Resource/resource.js";
 import { initialState } from "./State/initState.js";
 console.log("main");
@@ -17,21 +17,18 @@ const coinsEl = document.getElementById("coins");
 const gamefieldEl = document.getElementById("gamefield");
 const journalEl = document.getElementById("journal__content");
 const saveEl = document.getElementById("save");
+const resetButton = document.getElementById("reset");
 
 gamefieldEl?.style.setProperty("--columns", COLUMNS.toString());
 
 for (let i = 0; i < COLUMNS; i++) {
   for (let j = 0; j < ROWS; j++) {
-    const divCell = createRandomCell(currentIndex);
+    const divCell = createCell(currentIndex);
     currentIndex++;
     gamefieldEl?.append(divCell);
   }
 }
 const stateResources = initialState.resources;
-
-console.log(stateResources.coins);
-
-// localStorage.clear();
 
 console.log(localStorage);
 
@@ -62,8 +59,15 @@ function saveState() {
   console.log(localStorage.getItem("state"));
 }
 
+function resetAndReload() {
+  location.reload();
+  localStorage.clear();
+}
+
 gamefieldEl?.addEventListener("click", ulClick);
 
 saveEl?.addEventListener("click", saveState);
+
+resetButton?.addEventListener("click", resetAndReload);
 
 // console.log(initialState.resources.coins.quantity);

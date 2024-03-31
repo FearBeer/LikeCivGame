@@ -15,7 +15,7 @@ function randomResourceType() {
     console.log(aviableResources[index]);
     return aviableResources[index];
 }
-export function createRandomCell(currentIndex) {
+export function createCell(currentIndex) {
     const divCell = document.createElement("div");
     divCell.classList.add("cell");
     divCell.dataset["index"] = currentIndex.toString();
@@ -39,9 +39,16 @@ export function changeCell(divCell) {
             divCell.dataset.opened = isOpened.toString();
             // change color
             divCell.style.background = `radial-gradient(${cellColor} 50%, ${ColorsENUM.default} 100%)`;
+            const cellState = {
+                index,
+                cellColor,
+            };
+            localStorage.setItem(`cell-${index}`, JSON.stringify(cellState));
+            console.log(localStorage.getItem(`cell-${index}`));
         }
         else {
             console.log(`Index: ${index} is opened? --- ${isOpened}`);
         }
     }
 }
+function setCellState() { }
